@@ -22,4 +22,17 @@ router.get('/getAllByUserID/:userId', async (req: Request, res: Response, next: 
     }
 })
 
+// Similar explicit typing for other routes
+router.post('/', async (req: Request, res: Response, next: NextFunction) => {
+	// Create a new record
+    try {
+        const newRecord = new FinancialRecordModel(req.body) // Create a new record with the request body
+        const savedRecord = await newRecord.save() // Save the new record
+        res.status(201).json(savedRecord)
+    } catch (error) {
+        console.error('Error creating record:', error)
+        res.status(500).json({ message: 'Internal server error.' })
+    }
+})
+
 export default router
