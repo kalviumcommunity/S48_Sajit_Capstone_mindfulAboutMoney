@@ -8,7 +8,6 @@ const contactRouter: Router = express.Router();
 
 // Safely check for API key
 const RESEND_API_KEY = process.env.RESEND_API_KEY;
-console.log("Resend API Key:", RESEND_API_KEY);
 
 // Only create Resend instance if API key exists
 const resend = RESEND_API_KEY ? new Resend(RESEND_API_KEY) : null;
