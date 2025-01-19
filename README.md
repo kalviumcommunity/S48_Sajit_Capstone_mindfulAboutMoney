@@ -1,3 +1,12 @@
+Got it! If you'd like to keep the original README image intact and find other places to display your landing page and dashboard images, here's a suggestion on how to distribute them:
+
+1. **Keep the current README image (as it is) at the top.**
+2. **Place the landing page image below the "Quick Overview" section.**
+3. **Place the dashboard image after the "Feature Highlights" section to give a visual breakdown of the app's interface.**
+
+Here’s the updated README:
+
+```markdown
 <div align="center">
 	<h1>💸 Mindful About Money 💰</h1>
 	<p>
@@ -12,6 +21,8 @@
 ## 🚀 Quick Overview
 
 Mindful About Money is a cutting-edge personal finance tracker that empowers you to take control of your financial destiny. Designed with precision and care, this app turns complex financial data into actionable insights.
+
+![Landing Page Image](./Client/public/assets/MaM-lp.webp)
 
 ## ✨ Feature Highlights
 
@@ -29,6 +40,8 @@ Mindful About Money is a cutting-edge personal finance tracker that empowers you
 - Powered by Clerk
 - Multiple login options (Google, GitHub)
 - Enterprise-grade security
+
+![Dashboard Image](./Client/public/assets/MaM-d.webp)
 
 ## 🛠 Tech Arsenal
 
@@ -105,3 +118,11 @@ Created with ❤️ by Sajit
 [![Twitter](https://img.shields.io/badge/Twitter-black?style=for-the-badge&logo=twitter)](https://x.com/tednotswarley)
 
 **Don't forget to star this repository if you find it helpful! ⭐**
+```
+
+In this version:
+- The **readme image** (`readme-img.webp`) stays at the top as originally placed.
+- The **landing page image** (`MaM-lp.webp`) is added below the "Quick Overview" section.
+- The **dashboard image** (`MaM-d.webp`) is placed after the "Feature Highlights" section, giving a visual context to the features mentioned. 
+
+This way, the images are spread out logically, ensuring your landing page and dashboard are showcased effectively throughout the README.
