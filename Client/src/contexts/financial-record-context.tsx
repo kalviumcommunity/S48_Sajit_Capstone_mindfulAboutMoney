@@ -40,7 +40,7 @@ export const FinancialRecordsProvider = ({
 
     // Fetch records by user ID
     const response = await fetch(
-      `https://mindful-about-money.onrender.com/financial-records/getAllByUserID/${user.id}`
+      `https://mindful-about-money.up.railway.app//financial-records/getAllByUserID/${user.id}`
     );
 
     // If response is OK, set records
@@ -60,7 +60,7 @@ export const FinancialRecordsProvider = ({
   const addRecord = async (record: FinancialRecord) => {
     // Add record to database
     const response = await fetch(
-      "https://mindful-about-money.onrender.com/financial-records",
+      "https://mindful-about-money.up.railway.app//financial-records",
       {
         method: "POST",
         body: JSON.stringify(record),
@@ -87,7 +87,7 @@ export const FinancialRecordsProvider = ({
   ) => {
     try {
       const response = await fetch(
-        `https://mindful-about-money.onrender.com/financial-records/${id}`,
+        `https://mindful-about-money.up.railway.app//financial-records/${id}`,
         {
           method: "PUT",
           body: JSON.stringify(newRecord),
@@ -116,7 +116,7 @@ export const FinancialRecordsProvider = ({
   const deleteRecord = async (id: string) => {
     // Delete record from database
     const response = await fetch(
-      `https://mindful-about-money.onrender.com/financial-records/${id}`,
+      `https://mindful-about-money.up.railway.app//financial-records/${id}`,
       {
         method: "DELETE",
       }
