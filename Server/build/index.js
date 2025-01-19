@@ -55,6 +55,13 @@ if (!mongoURI) {
 // Add some logging to verify environment variables
 console.log("MongoDB URI:", mongoURI.substring(0, 20) + "...");
 console.log("Resend API Key:", process.env.RESEND_API_KEY ? "Present" : "Missing");
+app.get("/health", (_, res) => {
+    res.status(200).send("OK");
+});
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).send("Something broke!");
+});
 mongoose_1.default
     .connect(mongoURI)
     .then(() => {
