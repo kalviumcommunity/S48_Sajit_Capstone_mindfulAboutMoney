@@ -55,7 +55,7 @@ const handleSubmit = async (e: React.FormEvent) => {
   try {
     // Adjust the URL to match your backend endpoint
     const response = await axios.post(
-      "https://mindful-about-money.onrender.com/contact/send",
+      "https://mindful-about-money.up.railway.app/contact/send",
       formData
     );
 
