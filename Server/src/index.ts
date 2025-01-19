@@ -28,6 +28,22 @@ console.log(
   process.env.RESEND_API_KEY ? "Present" : "Missing"
 );
 
+app.get("/health", (_, res) => {
+  res.status(200).send("OK");
+});
+
+app.use(
+  (
+    err: Error,
+    req: express.Request,
+    res: express.Response,
+    next: express.NextFunction
+  ) => {
+    console.error(err.stack);
+    res.status(500).send("Something broke!");
+  }
+);
+
 mongoose
   .connect(mongoURI)
   .then(() => {
