@@ -50,13 +50,11 @@ contactRouter.post(
       if (error) {
         console.error("Resend email error:", error); // Log detailed error
         return res.status(400).json({ error });
-        console.log("Resend API Key:", process.env.RESEND_API_KEY); // This will print the actual key or undefined if not set
       }
 
       return res.status(200).json({ message: "Email sent successfully", data });
     } catch (error) {
       console.error("Email sending error:", error); // Log error details
-      console.log("Resend API Key:", process.env.RESEND_API_KEY);
       return res.status(500).json({
         error: "Failed to send email",
         details: error instanceof Error ? error.message : error,
