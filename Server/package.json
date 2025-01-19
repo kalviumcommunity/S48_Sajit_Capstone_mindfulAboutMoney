@@ -5,21 +5,15 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node ./build/index.js",
-    "build": "tsc -p .",
+    "build": "npx tsc",
     "dev": "nodemon ./src/index.ts"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "mongoose": "^8.9.5",
-    "node": "^22.13.0",
-    "resend": "^4.1.1",
-    "tsc": "^2.0.4"
+    "resend": "^4.1.1"
   },
   "devDependencies": {
     "@types/cors": "^2.8.17",
