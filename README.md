@@ -109,4 +109,3 @@ Created with ❤️ by Sajit
 [![Twitter](https://img.shields.io/badge/Twitter-black?style=for-the-badge&logo=twitter)](https://x.com/tednotswarley)
 
 **Don't forget to star this repository if you find it helpful! ⭐**
-This way, the images are spread out logically, ensuring your landing page and dashboard are showcased effectively throughout the README.
