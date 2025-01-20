@@ -53,12 +53,12 @@ Mindful About Money is a cutting-edge personal finance tracker that empowers you
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/maverickOG/Mindful-About-Money.git
-cd Mindful-About-Money
+git clone https://github.com/maverickOG/Mindful-about-Money.git
+cd Mindful-about-Money
 ```
 
 ### 2. Environment Setup
-Create `.env` files in both `Client` and `Server` directories:
+Create `.env` files in both `Client` and `Server` directories (`.env.local` in `Client`)
 
 #### Client `.env`
 ```
