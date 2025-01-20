@@ -2,7 +2,7 @@ import express, { Express } from "express";
 import mongoose from "mongoose";
 import * as dotenv from "dotenv";
 import financialRecordRouter from "./routes/financial-records";
-// import contactRouter from "./routes/contact";
+import contactRouter from "./routes/contact";
 import cors from "cors";
 
 dotenv.config();
@@ -49,7 +49,7 @@ mongoose
   .then(() => {
     console.log("Connected to MongoDB 📦");
     app.use("/financial-records", financialRecordRouter);
-    // app.use("/contact", contactRouter);
+    app.use("/contact", contactRouter);
 
     app.listen(port, () => {
       console.log(`Server is running on http://localhost:${port} 🚀`);
