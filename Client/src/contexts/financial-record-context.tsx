@@ -40,7 +40,7 @@ export const FinancialRecordsProvider = ({
 
     // Fetch records by user ID
     const response = await fetch(
-      `https://mindful-about-money.up.railway.app/financial-records/getAllByUserID/${user.id}`
+      `https://mindful-about-money.up.railway.app/financial-records/getAllByUserID/${user.id}`,
     );
 
     // If response is OK, set records
@@ -67,7 +67,7 @@ export const FinancialRecordsProvider = ({
         headers: {
           "Content-Type": "application/json",
         },
-      }
+      },
     );
     // If response is OK, add record to state
     try {
@@ -86,15 +86,23 @@ export const FinancialRecordsProvider = ({
     newRecord: Partial<FinancialRecord>,
   ) => {
     try {
+      // Clean the amount value if it exists in newRecord
+      const cleanedRecord = {
+        ...newRecord,
+        amount: newRecord.amount
+          ? Number(newRecord.amount.toString().replace(/,/g, ""))
+          : newRecord.amount,
+      };
+
       const response = await fetch(
         `https://mindful-about-money.up.railway.app/financial-records/${id}`,
         {
           method: "PUT",
-          body: JSON.stringify(newRecord),
+          body: JSON.stringify(cleanedRecord),
           headers: {
             "Content-Type": "application/json",
           },
-        }
+        },
       );
 
       if (response.ok) {
@@ -119,7 +127,7 @@ export const FinancialRecordsProvider = ({
       `https://mindful-about-money.up.railway.app/financial-records/${id}`,
       {
         method: "DELETE",
-      }
+      },
     );
 
     // If response is OK, add record to state
