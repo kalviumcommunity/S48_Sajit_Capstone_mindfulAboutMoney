@@ -81,7 +81,6 @@ export const FinancialRecordsProvider = ({
   };
 
   // Update record
-  // financial-record-context.tsx
   const updateRecord = async (
     id: string,
     newRecord: Partial<FinancialRecord>,
