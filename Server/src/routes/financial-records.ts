@@ -22,7 +22,7 @@ router.get(
       console.error("Error getting records:", error);
       res.status(500).json({ message: "Internal server error." });
     }
-  }
+  },
 );
 
 // Similar explicit typing for other routes
@@ -39,22 +39,28 @@ router.post("/", async (req: Request, res: Response, next: NextFunction) => {
 });
 
 // Update a record
+// financial-record.ts
 router.put("/:id", async (req: Request, res: Response, next: NextFunction) => {
-  // Update an existing record
   try {
-    const id = req.params.id; // Get the record ID from the request
-    // Find the record by ID and update it with the request body
+    const id = req.params.id;
+
+    // Clean the amount if it exists in the request body
+    if (req.body.amount) {
+      // Remove commas and convert to number
+      req.body.amount = Number(req.body.amount.toString().replace(/,/g, ""));
+    }
+
     const updatedRecord = await FinancialRecordModel.findByIdAndUpdate(
       id,
       req.body,
-      { new: true, runValidators: true }
+      { new: true, runValidators: true },
     );
-    // If the record is not found, return a 404 status code
+
     if (!updatedRecord) {
       res.status(404).json({ message: "Record not found." });
       return;
     }
-    res.status(200).json(updatedRecord); // Return the updated record
+    res.status(200).json(updatedRecord);
   } catch (error) {
     console.error("Error updating record:", error);
     res.status(500).json({ message: "Internal server error." });
@@ -80,7 +86,7 @@ router.delete(
       console.error("Error deleting record:", error);
       res.status(500).json({ message: "Internal server error." });
     }
-  }
+  },
 );
 
 export default router;
