@@ -52,7 +52,6 @@ dotenv.config();
 const contactRouter = express_1.default.Router();
 // Safely check for API key
 const RESEND_API_KEY = process.env.RESEND_API_KEY;
-console.log("Resend API Key:", RESEND_API_KEY);
 // Only create Resend instance if API key exists
 const resend = RESEND_API_KEY ? new resend_1.Resend(RESEND_API_KEY) : null;
 const sendEmailHandler = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {

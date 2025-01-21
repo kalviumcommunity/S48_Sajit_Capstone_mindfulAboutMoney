@@ -40,7 +40,7 @@ const express_1 = __importDefault(require("express"));
 const mongoose_1 = __importDefault(require("mongoose"));
 const dotenv = __importStar(require("dotenv"));
 const financial_records_1 = __importDefault(require("./routes/financial-records"));
-// import contactRouter from "./routes/contact";
+const contact_1 = __importDefault(require("./routes/contact"));
 const cors_1 = __importDefault(require("cors"));
 dotenv.config();
 const app = (0, express_1.default)();
@@ -67,7 +67,7 @@ mongoose_1.default
     .then(() => {
     console.log("Connected to MongoDB 📦");
     app.use("/financial-records", financial_records_1.default);
-    // app.use("/contact", contactRouter);
+    app.use("/contact", contact_1.default);
     app.listen(port, () => {
         console.log(`Server is running on http://localhost:${port} 🚀`);
     });
