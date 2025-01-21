@@ -39,7 +39,6 @@ router.post("/", async (req: Request, res: Response, next: NextFunction) => {
 });
 
 // Update a record
-// financial-record.ts
 router.put("/:id", async (req: Request, res: Response, next: NextFunction) => {
   try {
     const id = req.params.id;
