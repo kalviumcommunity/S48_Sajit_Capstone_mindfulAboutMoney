@@ -11,10 +11,20 @@ dotenv.config();
 const app: Express = express();
 const port = process.env.PORT || 3001;
 
+const allowedOrigins = [
+  "https://mindful-about-money.pages.dev", // your Cloudflare Pages domain
+];
+
 const UPTIME_ROBOT_API_KEY = process.env.UPTIME_ROBOT_API_KEY || "";
 
 app.use(express.json());
-app.use(cors());
+
+app.use(
+  cors({
+    origin: allowedOrigins,
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  })
+);
 
 const mongoURI: string = process.env.MONGO_URI || "";
 if (!mongoURI) {
