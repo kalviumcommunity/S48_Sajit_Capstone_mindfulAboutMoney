@@ -13,7 +13,7 @@ const HealthStatus: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    fetch(import.meta.env.VITE_API_URL + "/health")
+    fetch(`${import.meta.env.VITE_API_URL}/health`)
       .then((res) => res.json())
       .then((data) => setMonitors(data.monitors))
       .catch(() => setError("Failed to load status"));
