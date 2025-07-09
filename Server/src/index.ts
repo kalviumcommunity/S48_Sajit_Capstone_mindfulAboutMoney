@@ -4,11 +4,14 @@ import * as dotenv from "dotenv";
 import financialRecordRouter from "./routes/financial-records";
 import contactRouter from "./routes/contact";
 import cors from "cors";
+import axios from "axios";
 
 dotenv.config();
 
 const app: Express = express();
 const port = process.env.PORT || 3001;
+
+const UPTIME_ROBOT_API_KEY = process.env.UPTIME_ROBOT_API_KEY || "";
 
 app.use(express.json());
 app.use(cors());
@@ -28,9 +31,30 @@ console.log(
   process.env.RESEND_API_KEY ? "Present" : "Missing"
 );
 
-app.get("/health", (_, res) => {
-  res.status(200).send("OK");
+// Route to fetch uptime status from UptimeRobot
+app.get("/health", async (req, res) => {
+  try {
+    const response = await axios.post(
+      "https://api.uptimerobot.com/v2/getMonitors",
+      {
+        api_key: process.env.UPTIME_ROBOT_API_KEY,
+        format: "json",
+      }
+    );
+
+    const monitors = response.data.monitors.map((monitor: any) => ({
+      name: monitor.friendly_name,
+      status: monitor.status,
+      uptime: monitor.all_time_uptime_ratio,
+    }));
+
+    res.json({ monitors });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: "Failed to fetch uptime status" });
+  }
 });
+
 
 app.use(
   (
