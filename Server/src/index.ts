@@ -55,7 +55,7 @@ app.get("/health", async (req, res) => {
     const monitors = response.data.monitors.map((monitor: any) => ({
       name: monitor.friendly_name,
       status: monitor.status,
-      uptime: monitor.all_time_uptime_ratio,
+      uptime: monitor.all_time_uptime_ratio || "N/A",
     }));
 
     res.json({ monitors });
@@ -64,7 +64,6 @@ app.get("/health", async (req, res) => {
     res.status(500).json({ error: "Failed to fetch uptime status" });
   }
 });
-
 
 app.use(
   (
