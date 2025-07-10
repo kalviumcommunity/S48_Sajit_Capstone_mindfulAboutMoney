@@ -21,6 +21,7 @@ import {
   UserIcon,
   LayoutDashboardIcon,
 } from "lucide-react";
+import HealthPage from "./pages/health";
 
 function PrivateRoute({ children }: { children: React.ReactNode }) {
   const { isSignedIn, isLoaded } = useUser();
@@ -179,6 +180,7 @@ function AppContent() {
           <Routes>
             <Route path='/' element={<Landing />} />
             <Route path='/auth' element={<Auth />} />
+            <Route path='/health' element={<HealthPage />} />
             <Route
               path='/dashboard'
               element={
